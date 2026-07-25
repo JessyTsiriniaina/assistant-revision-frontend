@@ -4,10 +4,9 @@ import { useToast } from '../../context/useToast';
 import { colorMap } from '../../data/mockData';
 import { fetchDocuments, uploadDocument, deleteDocument } from '../../services/api';
 
-const ACCEPTED_FORMATS = ['.pdf', '.docx', '.txt'];
+const ACCEPTED_FORMATS = ['.pdf', '.txt'];
 const FORMAT_COLORS = {
     PDF: 'bg-red-100 text-red-700',
-    DOCX: 'bg-blue-100 text-blue-700',
     TXT: 'bg-gray-100 text-gray-700',
 };
 
@@ -176,7 +175,7 @@ export default function UploadZone({ compact = false }) {
                 <input
                     type="file"
                     multiple
-                    accept=".pdf,.docx,.txt"
+                    accept=".pdf,.txt"
                     onChange={handleFileInput}
                     className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
                 />
@@ -190,7 +189,7 @@ export default function UploadZone({ compact = false }) {
                     </p>
                     <p className="text-sm text-gray-500 mb-3">ou cliquez pour parcourir vos fichiers</p>
                     <div className="flex items-center justify-center gap-2">
-                        {['PDF', 'DOCX', 'TXT'].map(fmt => (
+                        {['PDF', 'TXT'].map(fmt => (
                             <span key={fmt} className={`text-xs px-2.5 py-1 rounded-full font-medium ${FORMAT_COLORS[fmt]}`}>{fmt}</span>
                         ))}
                     </div>
